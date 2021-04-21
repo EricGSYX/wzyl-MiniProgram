@@ -1,0 +1,23 @@
+<!-- pages/myself/myself.wxml -->
+<view class="myselfContainer" hover-class="none" hover-stop-propagation="false">
+  <view class="userInfo" hover-class="none" hover-stop-propagation="false">
+    <image src="/static/images/5d82eda106f25.jpg" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+    <text class="userName" selectable="false" space="false" decode="false">当前名字</text>
+  </view>
+  <view class="personalContent">
+    <view class="cardList">
+      <view class="card-item">
+        <text class="title">我的信息</text>
+        <image src="/static/big.png"></image>
+      </view>
+      <view class="card-item">
+        <text class="title">我的收藏</text>
+        <image src="/static/big.png"></image>
+      </view>
+      <view class="card-item" bindtap="getPosition">
+        <text class="title">我的位置</text>
+        <image src="/static/big.png"></image>
+      </view>
+    </view>
+  </view>
+</view>

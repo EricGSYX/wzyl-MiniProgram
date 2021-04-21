@@ -1,0 +1,195 @@
+@import '/static/iconfont/iconfont.wxss';
+.mapContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.mapClass {
+  width: 100%;
+  height: 100%;
+}
+.navbar {
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 500;
+  width: 100%;
+  height: 30px;
+  flex-direction: row;
+  text-align: center;
+  color: #a8a8a8;
+  font-size: 12px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-bottom: 1rpx solid #dfdfdf;
+}
+.navbarItem {
+  flex: 1;
+  padding: 15rpx 0px;
+}
+.navbarItemActive {
+  font-weight: 800;
+  color: #f85a1c;
+  border-bottom: 2px solid #f85a1c;
+  transition: all 0.3ms ease-out 0.01ms;
+  transform: translateX(0%);
+}
+/* 下边框左右动画 */
+/* .line {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 4rpx;
+  background: red;
+  transition: all 0.3s ease-out 0.1s;
+} */
+
+.img {
+  width: 70rpx;
+  height: 70rpx;
+  display: flex;
+  position: fixed;
+  top: 700rpx;
+  left: 20rpx;
+  margin-top: 200px;
+}
+
+.chatroom {
+  margin-top: 50px;
+  display: flex;
+
+  flex-direction: column;
+
+  width: 110rpx;
+  height: 100rpx;
+
+  position: absolute;
+  top: 10rpx;
+  left: 0;
+}
+
+.zan-dialog__mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background: rgba(
+    0,
+    0,
+    0,
+    0
+  ); /*设置阴影半透明背景如： background: rgba(0, 0, 0, 0.4);*/
+  display: none;
+}
+
+.zan-dialog__container {
+  position: fixed;
+  bottom: 400rpx;
+  /*弹窗布局宽*/
+  width: 500rpx; 
+  /*弹窗布局高，与下面弹出距离transform有关*/
+  height: 200rpx; 
+  margin-left: 125rpx;
+  top: 99%;
+  background: #f8f8f8;
+  /*弹框弹出距离，与弹框布局高度有关，如300%表示弹起距离为3倍弹窗高度 */
+  transform: translateY(
+    -130%
+  ); 
+  transition: all 0.3s ease-out 0.1s;
+  z-index: 12;
+  border-radius: 20rpx;
+  /*弹框的悬浮阴影效果，如不需要可注释该行*/
+  box-shadow: 0px 1px 1px 1px gainsboro; 
+}
+
+.zan-dialog--show .zan-dialog__container {
+  transform: translateY(10%);
+}
+
+.zan-dialog--show .zan-dialog__mask {
+  display: block;
+}
+.zan-dialog__container{
+  display: flex;
+  flex-direction: column;
+}
+/* 介绍 */
+.zan-dialog__container .playText{
+  height: 30px;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-left: 3px;
+  font-weight: 600;
+}
+
+.imageView{
+  display: flex;
+  height: 30px;
+}
+/* 播放和暂停按钮 */
+.imageView image{
+  font-size: 21px;
+  margin-top: 5px;
+  margin-left: 3px;
+  width: 50px;
+  height: 30px;
+  margin-right: 140px;
+}
+/* 导航和详情按钮 */
+.imageContainer{
+  display: flex;
+  flex-direction: column;
+  width: 66rpx;
+  margin-left: 2px;
+}
+.imageContainer image{
+  margin-top: -2px;
+}
+.imageContainer text{
+  font-size: 8.5px;
+  font-weight: 600;
+}
+/* 进度条控制区域 */
+.progressControl {
+  display: flex;
+  line-height: 80rpx;
+  flex-direction: row;
+}
+.progressControl text{
+  font-size: 14px;
+  position: relative;
+  margin-right: 8px;
+  left: 3px;
+}
+.barControl {
+  position: relative;
+  width: 350rpx;
+  height: 4rpx;
+  background: rgba(0, 0, 0, 0.4);
+  margin-top: 20px;
+  margin-right: 5px;
+}
+.audio-currentTime-Bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 4rpx;
+  background: red;
+}
+/* 小圆球 */
+.audio-circle {
+  position: absolute;
+  right: -12rpx;
+  top: -4rpx;
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background: rgb(253, 80, 0);
+}

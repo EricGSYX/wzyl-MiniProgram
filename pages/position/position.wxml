@@ -1,0 +1,11 @@
+<!-- pages/order/order.wxml -->
+<view class="mapContainer">
+    <map id="mapId" subkey="RJBBZ-I5TRJ-SIJFG-KNJYP-SAI2V-HIFNU" class="mapClass" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" max-scale="20" min-scale="3" show-compass="true" enable-scroll="true" enable-rotate="true" enable-traffic="true" enable-poi="true" show-location="true" bindmarkertap="bindMarkerTap" bindregionchange="bindRegionChange">
+        <!-- 添加cover-view 代替了controls控件 -->
+        <cover-view class="coverPosition">
+            <cover-view class="coverContainer">
+                <cover-image class="coverImage" src="/static/controls.png" data-id="{{coverId}}" bindtap="moveToLocation"></cover-image>
+            </cover-view>
+        </cover-view>
+    </map>
+</view>

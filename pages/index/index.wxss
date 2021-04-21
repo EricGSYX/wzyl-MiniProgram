@@ -1,0 +1,63 @@
+/* pages/index/index.wxss */
+/* 导航搜索栏样式 */
+view {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.indexContainer {
+  background: white;
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  position: relative;
+}
+.hsImage {
+  width: 100%;
+  height: 280px;
+}
+.iconView {
+  height: 200px;
+  display: flex;
+  padding: 50px 50px;
+  background-color: rgb(250, 245, 245);
+  justify-content: space-between;
+  margin-top: 20px;
+  border-radius: 5%;
+}
+.imageView1 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgb(216, 190, 190);
+  justify-content: space-between;
+}
+.imageView1 .imageV {
+  width: 70px;
+  height: 70px;
+  margin-right: 85px;
+  border-radius: 10%;
+}
+.imageView1 .spanColor {
+  margin-right: 55px;
+  font-weight: 600;
+  color: rgb(40, 112, 245);
+}
+.imageView {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.imageView .imageV {
+  width: 80px;
+  height: 80px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 10%;
+}
+.imageView .spanColor {
+  text-align: center;
+  font-weight: 600;
+  color: rgb(40, 112, 245);
+}

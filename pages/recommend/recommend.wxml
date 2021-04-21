@@ -1,0 +1,17 @@
+<!--pages/recommend/recommend.wxml-->
+<view class="travelView" hover-class="none" hover-stop-propagation="false">
+    <image class="travelImage" src="/static/images/5d82eda106f25.jpg" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+    </image>
+    <text class="travelText" selectable="false" space="false" decode="false">
+        历史文化名城——歙县，游览徽州古镇景区
+    </text>
+</view>
+<view class="travelView" hover-class="none" hover-stop-propagation="false">
+    <image class="travelImage" src="/static/images/5d82eda106f25.jpg" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+    </image>
+    <text class="travelText">作为一名资深吃货，怎可放过当地特色美食？
+黄山美食好吃的太多了：黄山臭鳜鱼，毛豆腐，五城茶干，黄山刀板香，胡适一品锅.....还有好多街边的小吃，简直是吃货的天堂，哈哈~~</text>
+<text class="travelText" selectable="false" space="false" decode="false">
+    PS：黄山山顶的住宿一定要提前预定！！！黄山山顶只有几家酒店间房，到了周末和节假日寒暑假基本一房难求，标间都在900到1800之间，如果是临时买房还会加200到500一间房。住山上可以看日出、日落，也不会太累，如果有条件一定要住一晚山上。 旺季黄山酒店每天爆满，都需要提前一个星期以上才能预定到酒店。
+</text>
+</view>

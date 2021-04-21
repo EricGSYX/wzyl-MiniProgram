@@ -1,0 +1,69 @@
+<!-- 主页面,地图页面 -->
+<view class="mapContainer">
+  <map class="mapClass" subkey="RJBBZ-I5TRJ-SIJFG-KNJYP-SAI2V-HIFNU" 
+  longitude="{{longitude}}" latitude="{{latitude}}" scale="{{buildlData[isSelectedBuildType].scale}}" 
+  markers="{{buildlData[isSelectedBuildType].data}}" bindmarkertap="markertap" bindtap="toggleDialog" 
+  label="{{buildlData[isSelectedBuildType].name}}" id="map" data-num="{{buildlData[isSelectedBuildType].data}}">
+    <!-- cover-view 和scroll-view 不要放在地图组件的里面,否则真机调试时无法进行点击,图片也被覆盖了 -->
+  </map>
+  <view class="navbarContainer">
+    <!-- 导航栏 -->
+    <view class="navbar">
+      <block wx:for="{{buildlData}}" wx:key="id" id="{{index}}">
+        <view class="navbarItem {{navbarActiveIndex === index ? 'navbarItemActive' : ''}}" data-navbar-index="{{index}}" catchtap="onNavBarTap">
+          <text data-num="{{item.fId}}" bindtap="changePage">{{item.name}}</text>
+        </view>
+        <view class="line" style="width:{{100/navbarTitle.length}}%;transform:translateX({{100*navbarActiveIndex}}%);"></view>
+      </block>
+    </view>
+  </view>
+  <cover-view class="chatroom">
+    <cover-image src="/static/留言板.png" id="1"></cover-image>
+  </cover-view>
+  <!-- 定位的作用真机调试的时候可以体现出来 -->
+  <cover-view class="img">
+    <cover-image bindtap="position" src="/static/controls.png"></cover-image>
+  </cover-view>
+  <!-- style    的作用是用来进行点击变色的 -->
+  <!-- data-num 的作用是在'changePage'中传递过去的参数num -->
+  <!-- <scroll-view scroll-y="true" scroll-into-view="focusPointId" class="top-swich">
+    <view wx:for="{{buildlData}}" wx:key="id" id="{{index}}">
+      <view class="imageView" style="color:{{item.fId==currentItemId?'#e98f36':'#000'}}" data-num="{{item.fId}}" class="box" bindtap="changePage">
+        <image></image>
+        <view>{{item.name}}</view>
+      </view>
+    </view>
+  </scroll-view> -->
+</view>
+<view class="zan-dialog {{ showDialog ? 'zan-dialog--show' : '' }}">
+  <!-- 如果想点击弹窗外不隐藏，取消bindtap点击事件即可 -->
+  <view class="zan-dialog__mask" bindtap="toggleDialog" />
+  <view class="zan-dialog__container">
+    <!-- 介绍 -->
+    <text class="playText" selectable="false" space="false" decode="false">景区介绍</text>
+    <view class="imageView" hover-class="none" hover-stop-propagation="false">
+      <!-- 播放和暂停按钮 -->
+      <image class="iconfont {{ isPlay ? 'icon-bofangbeifen14' : 'icon-bofangbeifen13' }}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" 
+      binderror="" bindload="" bind:tap="onPlayAudio"></image>
+      <view class="imageContainer" hover-class="none" hover-stop-propagation="false" bind:tap="onGotoThere">
+        <image class="iconfont icon-icon_daohang-copy" src="" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+        <text selectable="false" space="false" decode="false">去这里</text>
+      </view>
+      <view class="imageContainer" hover-class="none" hover-stop-propagation="false" bind:tap="onMoreInformation" data-num="{{buildlData[isSelectedBuildType].data}}">
+        <image class="iconfont icon-chakanxiangqinggengduo" src="" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+        <text selectable="false" space="false" decode="false" >更多详情</text>
+      </view>
+    </view>
+    <!-- 圆点和 -->
+    <view class="progressControl" hover-class="none" hover-stop-propagation="false">
+      <text selectable="false" space="false" decode="false">{{currentTime}}</text>
+      <view class="barControl" hover-class="none" hover-stop-propagation="false">
+        <view class="audio-currentTime-Bar" hover-class="none" hover-stop-propagation="false">
+          <view class="audio-circle" hover-class="none" hover-stop-propagation="false"></view>
+        </view>
+      </view>
+      <text selectable="false" space="false" decode="false">{{lastTime}}</text>
+    </view>
+    <!-- <view style='padding:100rpx;'>此处是填充的布局代码</view> -->
+  </view>
+</view>

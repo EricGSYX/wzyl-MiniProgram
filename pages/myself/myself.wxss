@@ -1,0 +1,49 @@
+/* pages/myself/myself.wxss */
+.myselfContainer {
+  display: flex;
+  flex-direction: column;
+}
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+.userInfo image {
+  width: 150px;
+  height: 150px;
+  border-radius: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+.userInfo text {
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 600;
+  color: #1296db;
+}
+.userInfo .userName{
+  margin-top: 10px;
+}
+.personalContent {
+  background: #fff;
+  margin-top: 20rpx;
+}
+.cardList {
+  height: 170px;
+}
+.cardList .card-item {
+  border-top: 1rpx solid #eee;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 10rpx;
+  font-size: 26rpx;
+  color: #333;
+}
+.cardList .card-item image{
+  float: right;
+}
+.card-item image{
+  height: 13px;
+  width: 13px;
+  margin-top: 12px;
+}

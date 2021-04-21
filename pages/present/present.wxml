@@ -1,0 +1,15 @@
+<!--pages/present/present.wxml-->
+<view class="travelView" hover-class="none" hover-stop-propagation="false">
+    <image class="travelImage" src="/static/images/5d82eda106f25.jpg" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+        
+    </image>
+    <text class="travelText">地点：主场为拉斯维加斯，目前正全世界巡演
+
+时间：6至8月之间，为期两天
+
+有着十六年历史的EDC音乐节已经成了全世界派对动物的圣地，可以说是北美最大的电子音乐节了，每年都有超过30万的观众参与。
+
+这是一个综合性音乐节，除了音乐舞台之外，还有很多的游乐设施（跳楼机、摩天轮、秋千、碰碰车等等一应俱全）。音乐舞台有7个，所有的音乐、灯光还有烟火都非常恰当好处，每个舞台都有一个主题，EDC在世界很多地方都会举办，拉斯维加斯的最为盛大。
+
+同样有着世界各地音乐节经历的知名主持人张有待感言：“攒一辈子钱，也得来一次EDC。”</text>
+</view>

@@ -1,0 +1,7 @@
+<!--pages/travelB/travelB.wxml-->
+<view class="travelView">
+  <image class="travelImage" src="/static/images/5d82eda106f25.jpg"></image>
+  <text class="travelText">游世界文化遗产地、徽州古民居——【宏村】，
+承志堂“三雕”精湛，被誉为民间故 宫。是奥斯卡获奖影片《卧虎藏龙》外景拍摄地。
+下山至换乘中心后，车赴宏村入住宏村特色客栈，晚上可自行欣赏宏村夜景（小欢安排的可以入住宏村是最让我满意的，感觉每一口呼吸都有幽幽古意！）</text>
+</view>

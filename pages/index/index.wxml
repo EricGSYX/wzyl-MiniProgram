@@ -1,0 +1,24 @@
+<!-- 首页 -->
+<view class="indexContainer">
+  <image class="hsImage" src="/static/images/a71ea8d3fd1f4134292f5403d47734ccd1c85e26.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+  <view class="iconView" hover-class="none" hover-stop-propagation="false">
+    <view class="imageView1" hover-class="none" hover-stop-propagation="false">
+      <image class="imageV" src="/static/hill.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" bindtap="doTravelA"></image>
+      <span class="spanColor">黄山风景区</span>
+    </view>
+    <view class="imageView" hover-class="none" hover-stop-propagation="false">
+      <image class="imageV" src="/static/travel.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" bindtap="doTravelB"></image>
+      <span class="spanColor">周边风景区</span>
+    </view>
+  </view>
+  <view class="iconView" hover-class="none" hover-stop-propagation="false">
+    <view class="imageView1" hover-class="none" hover-stop-propagation="false">
+      <image class="imageV" src="/static/present.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" bindtap="doPresent"></image>
+      <span class="spanColor">景区活动</span>
+    </view>
+    <view class="imageView" hover-class="none" hover-stop-propagation="false">
+      <image class="imageV" src="/static/position.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" bindtap="doRecommend"></image>
+      <span class="spanColor">线路推荐</span>
+    </view>
+  </view>
+</view>
