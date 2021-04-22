@@ -1,9 +1,6 @@
 <!-- 主页面,地图页面 -->
 <view class="mapContainer">
-  <map class="mapClass" subkey="RJBBZ-I5TRJ-SIJFG-KNJYP-SAI2V-HIFNU" 
-  longitude="{{longitude}}" latitude="{{latitude}}" scale="{{buildlData[isSelectedBuildType].scale}}" 
-  markers="{{buildlData[isSelectedBuildType].data}}" bindmarkertap="markertap" bindtap="toggleDialog" 
-  label="{{buildlData[isSelectedBuildType].name}}" id="map" data-num="{{buildlData[isSelectedBuildType].data}}">
+  <map class="mapClass" subkey="RJBBZ-I5TRJ-SIJFG-KNJYP-SAI2V-HIFNU" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{buildlData[isSelectedBuildType].scale}}" markers="{{buildlData[isSelectedBuildType].data}}" bindmarkertap="markertap" bindtap="toggleDialog" label="{{buildlData[isSelectedBuildType].name}}" id="map" data-num="{{buildlData[isSelectedBuildType].data}}">
     <!-- cover-view 和scroll-view 不要放在地图组件的里面,否则真机调试时无法进行点击,图片也被覆盖了 -->
   </map>
   <view class="navbarContainer">
@@ -11,7 +8,7 @@
     <view class="navbar">
       <block wx:for="{{buildlData}}" wx:key="id" id="{{index}}">
         <view class="navbarItem {{navbarActiveIndex === index ? 'navbarItemActive' : ''}}" data-navbar-index="{{index}}" catchtap="onNavBarTap">
-          <text data-num="{{item.fId}}" bindtap="changePage">{{item.name}}</text>
+          <text data-num="{{item.fId}}" data-name="{{item.data[0].name}}" data-longitude="{{item.data[0].longitude}}" data-latitude="{{item.data[0].latitude}}" bindtap="changePage">{{item.name}}</text>
         </view>
         <view class="line" style="width:{{100/navbarTitle.length}}%;transform:translateX({{100*navbarActiveIndex}}%);"></view>
       </block>
@@ -43,22 +40,24 @@
     <text class="playText" selectable="false" space="false" decode="false">景区介绍</text>
     <view class="imageView" hover-class="none" hover-stop-propagation="false">
       <!-- 播放和暂停按钮 -->
-      <image class="iconfont {{ isPlay ? 'icon-bofangbeifen14' : 'icon-bofangbeifen13' }}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" 
-      binderror="" bindload="" bind:tap="onPlayAudio"></image>
+      <image class="iconfont {{ isPlay ? 'icon-bofangbeifen14' : 'icon-bofangbeifen13' }}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" bind:tap="onPlayAudio"></image>
       <view class="imageContainer" hover-class="none" hover-stop-propagation="false" bind:tap="onGotoThere">
         <image class="iconfont icon-icon_daohang-copy" src="" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
         <text selectable="false" space="false" decode="false">去这里</text>
       </view>
       <view class="imageContainer" hover-class="none" hover-stop-propagation="false" bind:tap="onMoreInformation" data-num="{{buildlData[isSelectedBuildType].data}}">
         <image class="iconfont icon-chakanxiangqinggengduo" src="" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
-        <text selectable="false" space="false" decode="false" >更多详情</text>
+        <text selectable="false" space="false" decode="false">更多详情</text>
       </view>
     </view>
-    <!-- 圆点和 -->
+    <!-- 进度条控制区域 -->
     <view class="progressControl" hover-class="none" hover-stop-propagation="false">
       <text selectable="false" space="false" decode="false">{{currentTime}}</text>
+      <!-- 总进度条 -->
       <view class="barControl" hover-class="none" hover-stop-propagation="false">
-        <view class="audio-currentTime-Bar" hover-class="none" hover-stop-propagation="false">
+        <!-- 实时进度条 -->
+        <view class="audio-currentTime-Bar" style="width:{{currentWidth+'rpx'}}" hover-class="none" hover-stop-propagation="false">
+          <!-- 小圆球 -->
           <view class="audio-circle" hover-class="none" hover-stop-propagation="false"></view>
         </view>
       </view>

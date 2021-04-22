@@ -1,7 +1,6 @@
 //获取应用实例
-const app = getApp()
+const app = getApp();
 var map = [
-
   {
     "fId": "1",
     "name": "风景",
@@ -257,8 +256,10 @@ var map = [
       },
     ]
   }
-]
-
+];
+// import PubSub from 'pubsub';
+// import moment from 'moment';
+import request from '../utilcompent/request';
 Page({
   data: {
     // 云开发数据
@@ -286,25 +287,37 @@ Page({
     currentTab: 0,
     // 展示弹窗
     showDialog: true,
-    // 是否播放
-    isPlay: false,
-    // 开始时间
-    currentTime: '00.00',
-    // 最后时间
-    lastTime: '03.11',
     // 给查看详情绑定一个值
     isButton: false,
     // 起始位置
-    startAddress : {},
+    startAddress: {},
     // 终点位置
-    endAddress : {
-      address : '合肥市安徽省黄山区黄山风景区',
+    endAddress: {
+      address: '合肥市安徽省黄山区黄山风景区',
       city: '合肥市',
       latitude: 30.154595,
       longitude: 118.157848,
-      name : '黄山风景区'
+      name: '黄山风景区'
     },
-    mode : 'driving'
+    nowName: '',
+    nowLongitude: '',
+    nowLatitude: '',
+    // 出行方式首选自驾
+    mode: 'driving',
+    // 是否播放
+    isPlay: false,
+    // 音乐详情对象
+    song: {},
+    // 音乐id
+    musicId: '',
+    // 音乐链接
+    musicLink: '',
+    // 实时时间
+    currentTime: '00.00',
+    // 总时长
+    lastTime: '00.00',
+    // 实施进度条的宽度
+    currentWidth: 0,
   },
 
   /**
@@ -489,6 +502,9 @@ Page({
       longitude: map[event.currentTarget.dataset.num - 1].longitude,
       latitude: map[event.currentTarget.dataset.num - 1].latitude,
       scale: 16,
+      nowName: event.currentTarget.dataset.name,
+      nowLongitude: event.currentTarget.dataset.longitude,
+      nowLatitude: event.currentTarget.dataset.latitude
     });
   },
   // 点击景区图标跳转到对应页面
@@ -544,24 +560,50 @@ Page({
     // 调用的app名称
     const referer = '文智云旅';
     let startPoint = JSON.stringify(this.data.startAddress);
+    let name = this.data.endAddress.name;
+    let nowName = this.data.nowName;
+    if (nowName != name && nowName != '' && nowName != undefined) {
+      // console.log("nowName:", nowName)
+      this.setData({
+        endAddress: {
+          address: '合肥市安徽省黄山区黄山风景区',
+          city: '合肥市',
+          latitude: this.data.nowLatitude,
+          longitude: this.data.nowLongitude,
+          name: this.data.nowName
+        }
+      })
+    } else {
+      this.setData({
+        endAddress: {
+          address: '合肥市安徽省黄山区黄山风景区',
+          city: '合肥市',
+          latitude: 30.154595,
+          longitude: 118.157848,
+          name: '黄山风景区'
+        },
+      })
+    }
     let endPoint = JSON.stringify(this.data.endAddress);
+    // console.log("现在的位置22=>", endPoint)
     let mode = this.data.mode;
-    if(startPoint){
+    if (startPoint) {
       wx.navigateTo({
-        url: 'plugin://routePlan/index?key='+key+'&referer='+referer+'&endPoint='+endPoint+'&navigation=1'+'&mode='+mode,
+        url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint + '&navigation=1' + '&mode=' + mode,
       });
-    }else{
+    } else {
       wx.navigateTo({
-        url: 'plugin://routePlan/index?key='+key+'&referer='+referer+'&endPoint='+endPoint+'&startPoint='+startPoint+'&navigation=1'+'&mode='+mode,
+        url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint + '&startPoint=' + startPoint + '&navigation=1' + '&mode=' + mode,
       });
     }
+
   },
 
   /**
    * 查看详情
    */
   onMoreInformation(res) {
-    console.log("res=>",res)
+    console.log("res=>", res)
     var mark = res.currentTarget.dataset.num;
     var markerId = res.currentTarget.dataset.num[0].id;
     // console.log("拿到的mark",mark)

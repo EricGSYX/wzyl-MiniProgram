@@ -1,0 +1,4 @@
+<!--pages/fixedposition3/fixedposition3.wxml-->
+<view class="" hover-class="none" hover-stop-propagation="false">
+    <web-view src="https://map.vjingkeji.com/%E6%B1%9F%E8%A5%BF%E9%BE%99%E5%8D%97" bindmessage=""></web-view>
+</view>

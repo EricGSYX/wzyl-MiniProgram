@@ -1,12 +1,14 @@
 {
   "pages": [
     "pages/travelA/travelA",
-    "pages/fixedposition2/fixedposition2",
+    "pages/index/index",
     
+    "pages/fixedposition3/fixedposition3",
+    "pages/fixedposition2/fixedposition2",
     "pages/fixedposition/fixedposition",
     "pages/myself/myself",
     "pages/authorize/authorize",
-    "pages/index/index",
+    
     "pages/position/position",
     "pages/travelB/travelB",
     "pages/present/present",
